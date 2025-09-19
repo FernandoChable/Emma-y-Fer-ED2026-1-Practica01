@@ -2,23 +2,32 @@ module Practica01 where
 
 --FUNCIONES
 valorAbs :: Int -> Int
-valorAbs = undefined
+valorAbs x = if x >= 0
+    then x --Si es mayor o igual a 0, directamente regresará el mismo número
+    else -x --Si es menor a 0. multiplicará el número por - para que de el valor absoluto
 
 esDivisor :: Int -> Int -> Bool
-esDivisor = undefined 
+esDivisor n m = if mod n m == 0
+    then True --Devolverá true si el residuo de la división entre dos números es 0
+    else False --Devolverá false si el residuo no es 0
 
 cuadratica :: Float -> Float -> Float -> Float -> Float
-cuadratica = undefined
-
+cuadratica a b c v = a*(v*v) + b*v + c --Calcula y devuelve el resultado de la ecuación a(x*x)+bx+c donde x es el valor v.
 
 sumaFracciones :: (Int, Int) -> (Int, Int) -> (Int, Int)
-sumaFracciones = undefined
+sumaFracciones (a,b) (c,d) = if b==d --Primero verifica si los denominadores son iguales
+    then  ((a+c),(b)) --Si son iguales, solo suma los numeradores y transcribe el denominador
+    else  (((a*d)+(b*c)),(b*d)) --Si no, hace una suma de fracciones con diferente denominador
 
 comparador :: Float -> Float -> Int
-comparador = undefined
+comparador n m = if n==m
+    then 0 --Si n y m son iguales, devuelve 0
+    else if n>m 
+        then 1 --Si n es mayor a m, devuelve 1
+        else (-1) --Si no ocurre ninguna de las condiciones anteriores, quiere decir que m es mayor a n, y devuelve -1.
 
 puntoMedio :: (Float, Float) -> (Float, Float) -> (Float, Float)
-puntoMedio = undefined
+puntoMedio (a,b) (c,d) = (((a+c)/2),((b+d)/2)) 
 
 
 --RELACIONES
