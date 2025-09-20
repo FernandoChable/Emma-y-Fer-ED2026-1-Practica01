@@ -23,7 +23,7 @@ En esta sección deben eliminar esta línea de texto, borrar la leyenda "Integra
     +Quirino Roman Emmanuel
         -No. de Cuenta: 32303017-3
     +(No encontramos tercer integrante jeje)
-        -No. de Cuenta: 
+        -No. de Cuenta: ---
 
 ## Comentarios
 

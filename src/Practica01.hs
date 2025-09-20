@@ -7,7 +7,7 @@ valorAbs x = if x >= 0
     else -x --Si es menor a 0. multiplicará el número por - para que de el valor absoluto
 
 esDivisor :: Int -> Int -> Bool
-esDivisor n m = if mod n m == 0
+esDivisor n m = if mod m n == 0
     then True --Devolverá true si el residuo de la división entre dos números es 0
     else False --Devolverá false si el residuo no es 0
 
@@ -48,19 +48,35 @@ relacionCongruentesModuloN = undefined
 data Natural = Cero | Suc Natural deriving (Show,Eq) --Esto es para que se muestre y que se puedan comparar
 
 esPar :: Natural -> Bool
-esPar = undefined
+esPar Cero = True
+esPar (Suc Cero) = False
+esPar (Suc (Suc n)) = esPar n
 
 iguales :: Natural -> Natural -> Bool
-iguales = undefined
+iguales Cero Cero = True
+iguales (Suc a) Cero = False
+iguales Cero (Suc a) = False
+iguales (Suc a) (Suc b) = iguales a b
 
 maximo :: Natural -> Natural -> Natural 
-maximo = undefined
+maximo Cero Cero = Cero
+maximo Cero (Suc a) = (Suc a)
+maximo (Suc a) Cero = (Suc a)
+maximo (Suc a) (Suc b) = Suc (maximo a b)
 
 potencia :: Natural -> Natural -> Natural
-potencia = undefined
+potencia Cero (Suc a) = Cero
+potencia (Suc a) Cero = (Suc Cero)
+potencia a (Suc b) = multiplicacion a (potencia a b)
 
 multiplicacion :: Natural -> Natural -> Natural
-multiplicacion = undefined
+multiplicacion Cero Cero = Cero
+multiplicacion Cero (Suc x) = Cero
+multiplicacion (Suc x) Cero = Cero
+multiplicacion x (Suc y) = suma x (multiplicacion x y)
 
 suma :: Natural -> Natural -> Natural
-suma = undefined
+suma Cero Cero = Cero
+suma Cero (Suc x) = Suc x
+suma (Suc x) Cero = Suc x
+suma x  (Suc y) = Suc (suma x y)
