@@ -34,13 +34,22 @@ puntoMedio (a,b) (c,d) = (((a+c)/2),((b+d)/2))
 type Rel a b = [(a, b)]
 
 relacionDivisor :: Rel Int Int
-relacionDivisor = undefined
+relacionDivisor = concat [ if (b `mod` a == 0) && (a `mod` 2 == b `mod` 2)
+             then [(a,b)]
+             else []
+         | a <- [1..30], b <- [1..30] ]
 
 relacionSumaEspecial :: Rel Int Int
-relacionSumaEspecial = undefined
+relacionSumaEspecial = concat [ if ((a + b) `mod` 5 == 0) && (a < b)
+             then [(a,b)]
+             else []
+         | a <- [1..30], b <- [1..30] ]
 
 relacionCongruentesModuloN :: Int -> Rel Int Int
-relacionCongruentesModuloN = undefined
+relacionCongruentesModuloN n = concat [ if (a `mod` n == b `mod` n) && (a /= b)
+            then [(a,b)]
+            else []
+        | a <- [1..30], b <- [1..30] ]
 
 
 --NATURALES
